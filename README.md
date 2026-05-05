@@ -50,13 +50,15 @@ scoop install ffmpeg
    pkill ffplay
    ```
 
-**Option 2: Using an Alias (Add to `.zshrc` or `.bashrc`)**
+**Option 2: Using Aliases (Add to `.zshrc` or `.bashrc`)**
 ```bash
-alias pm='nohup ffplay -nodisp -volume 70 -infbuf https://stream.zeno.fm/f3wvbbqmdg8uv >/dev/null 2>&1 &'
+alias lofi='nohup ffplay -nodisp -volume 70 -infbuf https://stream.zeno.fm/f3wvbbqmdg8uv >/dev/null 2>&1 &'
+alias stop='pkill ffplay'
 ```
-Run `pm` to start the stream. To stop, run `pkill ffplay`.
+Run `lofi` to start the stream. Run `stop` to end it.
 
 ### 🪟 Windows (PowerShell)
+**Option 1: Using the Script**
 1. Run the script from PowerShell:
    ```powershell
    .\lofi.ps1
@@ -65,6 +67,13 @@ Run `pm` to start the stream. To stop, run `pkill ffplay`.
    ```powershell
    Stop-Process -Name ffplay
    ```
+
+**Option 2: Using Functions (Add to your PowerShell `$PROFILE`)**
+```powershell
+function lofi { Start-Process -WindowStyle Hidden -FilePath "ffplay" -ArgumentList "-nodisp", "-volume", "70", "-infbuf", "https://stream.zeno.fm/f3wvbbqmdg8uv" }
+function stop { Stop-Process -Name ffplay -ErrorAction SilentlyContinue }
+```
+Run `lofi` to start the stream. Run `stop` to end it.
 
 ### 🪟 Windows (Command Prompt)
 1. Run the script:

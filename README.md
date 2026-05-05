@@ -29,7 +29,7 @@ brew install ffmpeg
 **Option 1: Using the Script (Requires downloading the repo)**
 1. Clone the repository and navigate into it:
    ```bash
-   git clone https://github.com/yourusername/lofi-cli.git
+   git clone https://github.com/sdenaveenkumar/lofi-cli.git
    cd lofi-cli
    ```
 2. Make the script executable:
